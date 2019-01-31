@@ -1,19 +1,19 @@
 
+
 function setup() {
-  createCanvas(1000, 700); 
+  createCanvas(1000, 700);
 }
 
 function draw() {
  loadPixels();
   for(var x = 0; x < width; x++) {
     for(var y = 0; y < height; y++) {
-      var randomR= random(255);
-      var randomG= random(255);
-      var randomB= random(255);
-      set(x, y, [randomR, randomG, randomB, 255]); 
+			 var thisDist = dist(x, y, mouseX, mouseY);
+			thisDist= map(thisDist,0,width,0,255);
+      set(x, y, [thisDist, thisDist, 255, 255]);
     }
   }
   updatePixels();
-  rect(80,80, 100, 40);
+  rect(80,80, 140, 40);
   text(frameRate(), 100,100);
 }
